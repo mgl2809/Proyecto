@@ -1,0 +1,153 @@
+
+			/*TOP NAVIGATION*/
+#menucontainer{position:relative;height:30px;color:#E0E0E0;background:#013916;
+width:100%;font-family:Helvetica,Arial,Verdana,sans-serif;}
+
+#menunav{position:relative;height:27px;font-size:12px;text-transform:uppercase;
+font-weight:bold;background:#fff url(images/menu_bg.gif) repeat-x bottom left;
+padding:0 0 0 20px;}
+
+#menunav ul{margin:0;padding:0;list-style-type:none;width:auto;float:left;}
+
+#menunav ul li{display:block;float:left;padding:0 1px;}
+
+#menunav ul li a{display:block;float:left;color:#eaf8ec;text-decoration:none;
+padding:0 0 0 20px;height:33px;}
+
+#menunav ul li a span{padding:7px 20px 0 0;height:21px;float:left;}
+
+#menunav ul li a:hover{color:#fff;
+background:transparent url(images/menu_bg-OVER.gif) repeat-x bottom left;}
+
+#menunav ul li a:hover span{display:block;width:auto;cursor:pointer;}
+
+#menunav ul li a.current,#menunav ul li a.current:hover{color:#fff;
+background:#fff url(images/menu_left-ON.gif) no-repeat top left;line-height:275%;}
+
+#menunav ul li a.current span{display:block;padding:0 20px 0 0;width:auto;
+background:#13582d url(images/menu_right-ON.gif) no-repeat top right;height:33px;}
+
+#block{
+    width:100%;
+    height:100%;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    opacity:0.4;
+    filter:alpha(opacity=40); /* For IE8 and earlier */
+    top:0;
+    left:0;
+}
+#popupbox h2{
+    margin:0px;
+}
+#popupbox{
+    display: none;
+    padding: 5px;
+    padding-top: 0px;
+    background-color: white;
+    border: 5px solid #268035;
+    border-radius: 5px 5px 5px 5px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    
+    box-shadow:1px 1px 5px black;
+    z-index: 2;
+}
+.buttonsBar{
+    text-align: right;
+    margin-top: 3px;
+}
+#popupbox label{
+    display: block;
+    float: left;
+    margin-right: 9px;
+    margin-top: 7px;
+    text-align: right;
+    width: 102px;
+}
+a.button {
+    background-color: #268035;
+    color:white;
+    padding:5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow:1px 1px 5px black;
+    tex-shadow:1px 1px black;
+}
+table{
+    box-shadow:1px 1px 5px black;
+     /* hack IE8 */
+    border-spacing: 0 \0/;
+    border-collapse: collapse \0/;
+    border-right: 2px inset #D3D3D3 \0/;
+    border-bottom: 2px inset #D3D3D3 \0/;
+     /* hack IE7 */
+    *border-spacing: 0;
+    *border-collapse: collapse;
+    *border-right: 2px inset #D3D3D3;
+    *border-bottom: 2px inset #D3D3D3;
+}
+.bar{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.bar1{
+    background-color: #268035;
+   
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 5px black;
+    color: white;
+    font-family: Lucida Grande;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 5px;
+    text-shadow: 1px 1px gray;
+}
+
+.title{
+    top: 50px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    color: #5c5c5c;
+    font-family: Lucida Grande;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 30px 10px 10px 10px;
+    background-image: url(images/logo_SE.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    vertical-align: middle;
+    margin-top: 20px;
+}
+
+.contenedorTitulo:after{
+    content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;
+}
+
+.contenedorTitulo {display:block;}
+
+.nombre,.apellidos,.nombre_mat,.nombre_doc{
+    text-transform: uppercase;
+}
+
+.nomcorto,.clave,.curp,.sexo{
+    text-transform: uppercase;
+}
+
+.nocontrol,.calle,.colonia,.localidad{
+    text-transform: uppercase;
+}
+
+.municipio,.estado,.tutor,.retcvo{
+    text-transform: uppercase;
+}
+
+
+
+
