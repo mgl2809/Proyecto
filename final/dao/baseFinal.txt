@@ -1,0 +1,337 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.1.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost:8889
+-- Tiempo de generación: 11-06-2015 a las 03:46:25
+-- Versión del servidor: 5.5.42
+-- Versión de PHP: 5.6.7
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `bdscb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `administrador`
+--
+
+CREATE TABLE `administrador` (
+  `id_administrador` int(10) unsigned NOT NULL,
+  `nombre_administrador` varchar(50) DEFAULT NULL,
+  `usuario` varchar(25) DEFAULT NULL,
+  `contrasenia` varchar(12) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `anio_fiscal`
+--
+
+CREATE TABLE `anio_fiscal` (
+  `idanio_fiscal` int(10) unsigned NOT NULL,
+  `fecha_inicio` date DEFAULT NULL,
+  `fecha_fin` date DEFAULT NULL,
+  `nombre` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `anio_fiscal`
+--
+
+INSERT INTO `anio_fiscal` (`idanio_fiscal`, `fecha_inicio`, `fecha_fin`, `nombre`) VALUES
+(9, '2015-06-01', '2015-06-30', '2015');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `apoyo`
+--
+
+CREATE TABLE `apoyo` (
+  `nombre_proyecto` varchar(50) NOT NULL,
+  `id` int(10) NOT NULL,
+  `id_dependencia` varchar(50) NOT NULL,
+  `id_programa` varchar(50) NOT NULL,
+  `monto` float NOT NULL,
+  `estatus` int(1) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `beneficiario`
+--
+
+CREATE TABLE `beneficiario` (
+  `id_beneficiario` int(10) unsigned NOT NULL,
+  `direccion_id_direccion` int(10) unsigned NOT NULL,
+  `nombre_completo` varchar(50) NOT NULL,
+  `rfc` varchar(13) NOT NULL,
+  `curp` varchar(18) NOT NULL,
+  `usuario` varchar(25) DEFAULT NULL,
+  `contrasenia` varchar(12) DEFAULT NULL,
+  `estado` varchar(15) NOT NULL,
+  `estatus` int(10) unsigned NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `beneficiario`
+--
+
+INSERT INTO `beneficiario` (`id_beneficiario`, `direccion_id_direccion`, `nombre_completo`, `rfc`, `curp`, `usuario`, `contrasenia`, `estado`, `estatus`) VALUES
+(13, 0, 'Miguel', 'aucm900416di4', 'aucm900416hdggsg00', NULL, NULL, '', 0),
+(17, 0, 'masndaisd', 'jsfweuhwejnd', 'asdwefewf', 'kejfkewfjuwe', 'ajskdnuiwedh', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dependencia`
+--
+
+CREATE TABLE `dependencia` (
+  `id_dependencia` int(10) unsigned NOT NULL,
+  `enc_dependencia_idenc_dependencia` int(10) unsigned NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `ubicacion` text,
+  `responsable` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `dependencia`
+--
+
+INSERT INTO `dependencia` (`id_dependencia`, `enc_dependencia_idenc_dependencia`, `nombre`, `ubicacion`, `responsable`) VALUES
+(1, 1, 'Secretaría de Economía', 'Conocida', 'Responsable'),
+(2, 2, 'Secretaría de Finanzas', 'Ciudad gobierno', 'Juan Perez'),
+(3, 1, 'Secretaría de Recursos', 'Boulevard', 'María Ortega'),
+(4, 2, 'Secretaría de Asuntos Exteriores', 'Conocida', 'Miguel Diaz');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `direccion`
+--
+
+CREATE TABLE `direccion` (
+  `id_direccion` int(10) unsigned NOT NULL,
+  `dependencia_id_dependencia` int(10) unsigned NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `director` varchar(50) DEFAULT NULL,
+  `ubicacion` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `enc_dependencia`
+--
+
+CREATE TABLE `enc_dependencia` (
+  `id` int(10) unsigned NOT NULL,
+  `nombre_completo` varchar(50) NOT NULL,
+  `puesto` varchar(50) NOT NULL,
+  `num_empleado` int(10) unsigned NOT NULL,
+  `usuario` varchar(25) NOT NULL,
+  `contrasenia` varchar(15) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `enc_dependencia`
+--
+
+INSERT INTO `enc_dependencia` (`id`, `nombre_completo`, `puesto`, `num_empleado`, `usuario`, `contrasenia`) VALUES
+(5, 'Gonzalo Gonzales Carballido', 'gerente', 6543, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `organizacion`
+--
+
+CREATE TABLE `organizacion` (
+  `id_organizacion` int(10) unsigned NOT NULL,
+  `direccion_id_direccion` int(10) unsigned NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `giro` text,
+  `ubicacion` text,
+  `rfc` varchar(13) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `programa`
+--
+
+CREATE TABLE `programa` (
+  `id_programa` int(10) unsigned NOT NULL,
+  `dependencia_id_dependencia` int(10) unsigned NOT NULL,
+  `nombre_programa` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(50) DEFAULT NULL,
+  `caracteristicas` text,
+  `categoria` varchar(100) DEFAULT NULL,
+  `idanio_fiscal` int(11) NOT NULL,
+  `convocatoria` varchar(50) DEFAULT NULL,
+  `monto` double NOT NULL,
+  `estatus` int(10) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `programa`
+--
+
+INSERT INTO `programa` (`id_programa`, `dependencia_id_dependencia`, `nombre_programa`, `descripcion`, `caracteristicas`, `categoria`, `idanio_fiscal`, `convocatoria`, `monto`, `estatus`) VALUES
+(1, 1, 'PROINNOVA', 'Proyectos en red orientados a la innovación', 'Modalidad dedicada exclusivamente a propuestas y proyectos que se presenten en vinculación con al menos dos IES, o dos CI o uno de cada uno.', 'Estimulos a la innovación', 0, NULL, 0, 0),
+(2, 2, 'PROSOFT', 'Programa para el Desarrollo de la Industria del So', 'Desarrollo de un nuevo producto, proceso o servicio como resultados del proyecto para fomentar la innovación de productos, servicios y/o procesos del sector de TI', 'Innovación', 0, NULL, 0, 0),
+(3, 4, 'Certificación', 'Ayuda para certificarse', 'Dinero', 'Talento', 1, NULL, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `programabeneficiario`
+--
+
+CREATE TABLE `programabeneficiario` (
+  `idPB` int(11) NOT NULL,
+  `id_beneficiario` int(11) NOT NULL,
+  `id_programa` int(11) NOT NULL,
+  `monto` int(11) NOT NULL,
+  `estatus` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `programabeneficiario`
+--
+
+INSERT INTO `programabeneficiario` (`idPB`, `id_beneficiario`, `id_programa`, `monto`, `estatus`) VALUES
+(0, 1, 4, 200000, 1),
+(1, 1, 1, 500000, 1),
+(2, 1, 2, 200000, 2),
+(3, 1, 2, 300000, 3),
+(4, 1, 2, 300000, 3),
+(5, 1, 4, 200000, 1);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `administrador`
+--
+ALTER TABLE `administrador`
+  ADD PRIMARY KEY (`id_administrador`);
+
+--
+-- Indices de la tabla `anio_fiscal`
+--
+ALTER TABLE `anio_fiscal`
+  ADD PRIMARY KEY (`idanio_fiscal`);
+
+--
+-- Indices de la tabla `apoyo`
+--
+ALTER TABLE `apoyo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `beneficiario`
+--
+ALTER TABLE `beneficiario`
+  ADD PRIMARY KEY (`id_beneficiario`);
+
+--
+-- Indices de la tabla `dependencia`
+--
+ALTER TABLE `dependencia`
+  ADD PRIMARY KEY (`id_dependencia`),
+  ADD KEY `dependencia_FKIndex1` (`enc_dependencia_idenc_dependencia`);
+
+--
+-- Indices de la tabla `direccion`
+--
+ALTER TABLE `direccion`
+  ADD PRIMARY KEY (`id_direccion`),
+  ADD KEY `direccion_FKIndex1` (`dependencia_id_dependencia`);
+
+--
+-- Indices de la tabla `enc_dependencia`
+--
+ALTER TABLE `enc_dependencia`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `organizacion`
+--
+ALTER TABLE `organizacion`
+  ADD PRIMARY KEY (`id_organizacion`),
+  ADD KEY `organizacion_FKIndex1` (`direccion_id_direccion`);
+
+--
+-- Indices de la tabla `programa`
+--
+ALTER TABLE `programa`
+  ADD PRIMARY KEY (`id_programa`),
+  ADD KEY `programa_FKIndex2` (`dependencia_id_dependencia`);
+
+--
+-- Indices de la tabla `programabeneficiario`
+--
+ALTER TABLE `programabeneficiario`
+  ADD PRIMARY KEY (`idPB`),
+  ADD KEY `idPB` (`idPB`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `administrador`
+--
+ALTER TABLE `administrador`
+  MODIFY `id_administrador` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `anio_fiscal`
+--
+ALTER TABLE `anio_fiscal`
+  MODIFY `idanio_fiscal` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT de la tabla `apoyo`
+--
+ALTER TABLE `apoyo`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `beneficiario`
+--
+ALTER TABLE `beneficiario`
+  MODIFY `id_beneficiario` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT de la tabla `dependencia`
+--
+ALTER TABLE `dependencia`
+  MODIFY `id_dependencia` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `direccion`
+--
+ALTER TABLE `direccion`
+  MODIFY `id_direccion` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `enc_dependencia`
+--
+ALTER TABLE `enc_dependencia`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `organizacion`
+--
+ALTER TABLE `organizacion`
+  MODIFY `id_organizacion` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `programa`
+--
+ALTER TABLE `programa`
+  MODIFY `id_programa` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
