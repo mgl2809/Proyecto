@@ -3,8 +3,8 @@
 require_once ('../../bbl/lib/jpgraph/jpgraph.php');
 require_once('../../bbl/lib/jpgraph/jpgraph_bar.php');
 
-function generaGrafica1($data1y,$data2y,$data3y,$arrTitulos){
-    
+function generaGrafica2($data1y,$data2y,$data3y,$arrTitulos){
+
     $graph = new Graph(500,700);
     
     $b1plot = new BarPlot($data1y);

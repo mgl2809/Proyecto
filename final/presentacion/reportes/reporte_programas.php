@@ -6,7 +6,7 @@
  *
  */
 
-require_once('../../presentacion/reportes/grafica1.php');
+require_once('../../presentacion/reportes/grafica2.php');
 require_once ('../../bbl/sql_reportes.php');
 require_once ('../../dao/reportes.php');
 
@@ -29,7 +29,7 @@ switch ($action) {
         $view->ArrEstatus1 = $msql_reportes->MostrarPorPrograma(1);
         $view->ArrEstatus2 = $msql_reportes->MostrarPorPrograma(2);
         $view->ArrEstatus3 = $msql_reportes->MostrarPorPrograma(3);
-        $view->ArrTitulos = $msql_reportes->MostrarProgramas();
+        $view->ArrTitulos = $msql_reportes->MostrarTipos();
         $view->contentTemplate = "../../presentacion/reportes/reporteProgramasGrid.php";
         break;
     

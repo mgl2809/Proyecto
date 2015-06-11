@@ -33,7 +33,7 @@ class sql_reportes {
             $objeto->setidPrograma($renglon['id_programa']);
             $objeto->setNombrePrograma($renglon['nombre_programa']);
             
-            array_push($tipos, $objeto);
+            array_push($tipos, $renglon['nombre_programa']);
         }
 
         $Conexion->desconectarse();
@@ -124,11 +124,10 @@ class sql_reportes {
         $Conexion = conectar_bd();
         $Conexion->conectarse();
 		
-		$list_programas = $Conexion->ejecutar("SELECT count(programabeneficiario.idPB) as total from dependencia
-			left JOIN programa on dependencia.id_dependencia = programa.dependencia_id_dependencia
-			LEFT join programabeneficiario on programabeneficiario.id_programa = programa.id_programa
-			and programabeneficiario.estatus = '" . $estatus . "' 
-			group BY id_dependencia;");
+		$list_programas = $Conexion->ejecutar("SELECT count(programabeneficiario.id_programa) as total from programa
+						left JOIN programabeneficiario on
+						programa.id_programa = programabeneficiario.id_programa and
+						programabeneficiario.estatus = '".$estatus."' GROUP by programa.id_programa");
         
         
         while ($renglon = mysql_fetch_array($list_programas)){

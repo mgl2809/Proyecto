@@ -1,7 +1,7 @@
 <?php
 
 require_once ('../../bbl/sql_programa.php');
-require_once ('../../dao/programa.php');
+require_once ('../../dao/programa2.php');
 
 $action = 'index';
 if (isset($_POST['action'])) {
@@ -41,7 +41,7 @@ switch ($action) {
         $monto = strval($_POST['monto']);
 		$convocatoria = strval($_POST['convocatoria']);
 
-        $objeto = new programa();
+        $objeto = new programa2();
         $objeto->setnombre_programa($name);
         $objeto->setdescripcion($descripcion);
 		$objeto->setcaracteristicas($caracteristicacs);
@@ -86,7 +86,7 @@ switch ($action) {
         $monto = strval($_POST['monto']);
 		$convocatoria = strval($_POST['convocatoria']);
 
-        $objeto = new programa();
+        $objeto = new programa2();
 		$objeto->setid_programa($id_programa);
         $objeto->setnombre_programa($name);
         $objeto->setdescripcion($descripcion);
