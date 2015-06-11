@@ -105,7 +105,57 @@ class sql_beneficiario {
         return $programa;
     }
 
-
+	public function guardarBeneficiario1($objeto){
+        $Conexion = conectar_bd();
+        $Conexion->conectarse();
+        
+        $Conexion->ejecutar("INSERT INTO beneficiario (nombre_completo, rfc, curp, usuario, contrasenia) VALUES ('".$objeto->getNombre()."',
+        '".$objeto->getRfc()."','".$objeto->getCurp()."','".$objeto->getUsuario()."','".$objeto->getPass()."');");
+        
+        $Conexion->desconectarse();
+    }
+    
+  /*  public function guardarUsuario($objeto1){
+        $Conexion = conectar_bd();
+        $Conexion->conectarse();
+        
+        $Conexion->ejecutar("INSERT INTO usuarios (privilegios, usuario, contrasenia) 
+        VALUES(".$objeto1->getPrivilegio().", '".$objeto1->getUsuario()."','".$objeto1->getPass()."');");
+        
+        $Conexion->desconectarse();
+    }*/
+    
+    public function listarBeneficiarios(){
+        
+        $beneficiarios = array();
+        $Conexion = conectar_bd();
+        $Conexion->conectarse();
+        
+        $lista_beneficiarios = $Conexion->ejecutar("SELECT id_beneficiario, nombre_completo, rfc, curp 
+         FROM beneficiario ORDER BY nombre_completo;");
+        $i = 0;
+        while($renglon = mysql_fetch_array($lista_beneficiarios)){
+            $objeto = new beneficiario();
+            $objeto->setId($renglon['id_beneficiario']);
+            $objeto->setNombre($renglon['nombre_completo']);
+            $objeto->setRfc($renglon['rfc']);
+            $objeto->setCurp($renglon['curp']);
+            
+            array_push($beneficiarios, $objeto);
+        }
+        
+        $Conexion->desconectarse();
+        return $beneficiarios;
+    }
+    
+    public function deleteBeneficiario($id){
+        $Conexion = conectar_bd();
+        $Conexion->conectarse();
+        
+        $Conexion->ejecutar("DELETE FROM beneficiario WHERE id_beneficiario = ".$id.";");
+        
+        $Conexion->desconectarse();
+    }
 }
 
 ?>

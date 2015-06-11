@@ -116,6 +116,29 @@ class sql_reportes {
         $Conexion->desconectarse();
         return $programas;
     }
+	
+	//muestra programas por tipo
+    public function MostrarPorPrograma($estatus) {
+
+        $programas = array();
+        $Conexion = conectar_bd();
+        $Conexion->conectarse();
+		
+		$list_programas = $Conexion->ejecutar("SELECT count(programabeneficiario.idPB) as total from dependencia
+			left JOIN programa on dependencia.id_dependencia = programa.dependencia_id_dependencia
+			LEFT join programabeneficiario on programabeneficiario.id_programa = programa.id_programa
+			and programabeneficiario.estatus = '" . $estatus . "' 
+			group BY id_dependencia;");
+        
+        
+        while ($renglon = mysql_fetch_array($list_programas)){
+            array_push($programas, $renglon['total']);
+			
+        }
+
+        $Conexion->desconectarse();
+        return $programas;
+    }
 
     //regresa los programas de un beneficiario
    public function MostrarTiposDependencia() {

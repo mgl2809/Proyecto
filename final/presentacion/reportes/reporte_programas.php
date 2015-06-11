@@ -27,10 +27,10 @@ switch ($action) {
     case 'index':
 
        // $view->ListaTipos = $msql_reportes->MostrarTipos();
-        $view->ArrEstatus1 = $msql_reportes->MostrarEstatus(1);
-        $view->ArrEstatus2 = $msql_reportes->MostrarEstatus(2);
-        $view->ArrEstatus3 = $msql_reportes->MostrarEstatus(3);
-        $view->ArrTitulos = $msql_reportes->MostrarDependencias();
+        $view->ArrEstatus1 = $msql_reportes->MostrarPorPrograma(1);
+        $view->ArrEstatus2 = $msql_reportes->MostrarPorPrograma(2);
+        $view->ArrEstatus3 = $msql_reportes->MostrarPorPrograma(3);
+        $view->ArrTitulos = $msql_reportes->MostrarProgramas();
         $view->contentTemplate = "../../presentacion/reportes/reporteDependenciasGrid.php";
         break;
     
