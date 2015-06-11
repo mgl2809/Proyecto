@@ -1418,7 +1418,7 @@ $(document).ready(function(){ //cuando el html fue cargado iniciar
     })
 	   
 	//Guarda encargado desde el formulario
-     $('#saveE').live('click',function(){
+     $('#saveDep').live('click',function(){
       //  alert("sientra");
         var nombre = document.frm_dependencia.nombre.value;
 		var ubicacion = document.frm_dependencia.ub.value;
@@ -1461,26 +1461,24 @@ $(document).ready(function(){ //cuando el html fue cargado iniciar
             })        
        } 
     })
-	// Sección Programa
-   //Guarda encargado desde el formulario
-     $('#savePro').live('click',function(){
+	$('#savePro').live('click',function(){
          var nombre = document.frm_dependencia.nombre.value;
-		var descripcion = document.frm_dependencia.desc.value;
-	    var caracteristicacs = document.frm_dependencia.caracte.value;
-		var estatus = document.frm_dependencia.estatus.value;
-		var monto = document.frm_dependencia.monto.value;
-		var categoria = document.frm_dependencia.cat.value;
-		var convocatoria = document.frm_dependencia.conv.value;
-	   params={};
-        params.nombre = nombre;
-		params.descripcion = descripcion;
-		params.caracteristicacs = caracteristicacs; 
-		params.estatus = estatus;
-		params.monto = monto;
-		params.categoria = categoria;
-		params.convocatoria = convocatoria; 
-        var entrar = confirm("¿Se guardara el programa:  "+nombre+" "+ descripcion +" " +caracteristicacs+" "+estatus+" "+monto+" "+categoria+" "+convocatoria+"?");	
-		  if (entrar == true){            
+        var descripcion = document.frm_dependencia.desc.value;
+           var caracteristicacs = document.frm_dependencia.caracte.value;
+        var estatus = document.frm_dependencia.estatus.value;
+        var monto = document.frm_dependencia.monto.value;
+        var categoria = document.frm_dependencia.cat.value;
+        var convocatoria = document.frm_dependencia.conv.value;
+          params={};
+              params.nombre = nombre;
+        params.descripcion = descripcion;
+        params.caracteristicacs = caracteristicacs; 
+        params.estatus = estatus;
+        params.monto = monto;
+        params.categoria = categoria;
+        params.convocatoria = convocatoria; 
+        var entrar = confirm("¿Se guardara el programa:  "+nombre+" "+ descripcion +" " +caracteristicacs+" "+estatus+" "+monto+" "+categoria+" "+convocatoria+"?"); 
+    if (entrar == true){            
             params.action="Save_Dependencia";
             $('#content').load('listar_programa.php', params,function(){
              })        

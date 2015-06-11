@@ -28,7 +28,7 @@
             <tr>
                 <td>
                     <div class="buttonsBar">
-                        <a id="saveE" class="button" href="javascript:void(0);">Guardar</a>
+                        <a id="saveDep" class="button" href="javascript:void(0);">Guardar</a>
                     </div>                                
                 </td>
             </tr>

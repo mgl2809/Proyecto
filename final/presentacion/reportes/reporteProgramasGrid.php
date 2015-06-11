@@ -1,35 +1,45 @@
+<?php
 
-<form name="frm_listprogramas" id="frm_listprogramas">
-    <!--div class="bar">
-        <table>
-            <tr>
-                <td>
-                    Programa:<select name="tipoSelect">
-                        <?php
-                        foreach ($view->ListaTipos as $mPrograma):
-                            ?>               
-                             <option value="<?php echo $mPrograma->getIdPrograma(); ?>"><?php echo $mPrograma->getNombrePrograma(); ?></option>
-                            <?php
-                        endforeach;
-                        ?>    
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                     <a id="filtrarTipo" class="button" href="javascript:void(0);">Buscar</a>
-                </td>
-            </tr>
-        </table>
-    </div-->
-    <div class="bar">
-        <?php
-            generaGrafica1($view->ArrEstatus1,$view->ArrEstatus2,$view->ArrEstatus3,$view->ArrTitulos);
+/**
+ * Autor: Tania Reyes
+ * 
+ *
+ */
 
-        ?>  
-        <img src="../../bbl/lib/images/grafica1.jpg">
-       
-    </div>
-     
+require_once('../../presentacion/reportes/grafica2.php');
+require_once ('../../bbl/sql_reportes.php');
+require_once ('../../dao/reportes.php');
+
+
+$action = 'index';
+if (isset($_POST['action'])) {
+    $action = $_POST['action'];
+}
+
+$msql_reportes = new sql_reportes();
+
+$view = new stdClass();
+
+$view->disableLayout = false; 
+
+switch ($action) {
+    case 'index':
+
+       // $view->ListaTipos = $msql_reportes->MostrarTipos();
+        $view->ArrEstatus1 = $msql_reportes->MostrarPorPrograma(1);
+        $view->ArrEstatus2 = $msql_reportes->MostrarPorPrograma(2);
+        $view->ArrEstatus3 = $msql_reportes->MostrarPorPrograma(3);
+        $view->ArrTitulos = $msql_reportes->MostrarProgramas();
+        $view->contentTemplate = "../../presentacion/reportes/reporteProgramasGrid.php";
+        break;
     
-</form>
+    
+}
+
+if ($view->disableLayout == true) {
+    include_once ($view->contentTemplate);
+} else {
+    include_once ('../../presentacion/layoutC.php');
+} // el layout incluye el template adentro
+
+?>

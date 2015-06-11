@@ -7,7 +7,6 @@
  */
 
 require_once('../../presentacion/reportes/grafica1.php');
-require_once('../../presentacion/reportes/grafica2.php');
 require_once ('../../bbl/sql_reportes.php');
 require_once ('../../dao/reportes.php');
 
@@ -31,18 +30,10 @@ switch ($action) {
         $view->ArrEstatus2 = $msql_reportes->MostrarPorPrograma(2);
         $view->ArrEstatus3 = $msql_reportes->MostrarPorPrograma(3);
         $view->ArrTitulos = $msql_reportes->MostrarProgramas();
-        $view->contentTemplate = "../../presentacion/reportes/reporteDependenciasGrid.php";
+        $view->contentTemplate = "../../presentacion/reportes/reporteProgramasGrid.php";
         break;
     
-    case 'filtro':
-
-        $view->ListaTipos = $msql_reportes->MostrarTipos();
-        $view->ArrEstatus1 = $msql_reportes->MostrarEstatus(1,intval($_POST['idPrograma']));
-        $view->ArrEstatus2 = $msql_reportes->MostrarEstatus(2,intval($_POST['idPrograma']));
-        $view->ArrEstatus3 = $msql_reportes->MostrarEstatus(3,intval($_POST['idPrograma']));
-        $view->ArrTitulos = $msql_reportes->MostrarDependencias();
-        $view->contentTemplate = "../../presentacion/reportes/reporteDependenciasGrid.php";
-        break;
+    
 }
 
 if ($view->disableLayout == true) {
