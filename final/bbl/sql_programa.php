@@ -2,13 +2,12 @@
 
 /**
  *
- * @Clase para validar el acceso al sistema. "sql_acceso.php"
- * @versión: 0.1      @modificado:   15 de Abril del 2013
- * @autor: JMST
+ * MG
+ * 
  *
  */
 include_once("../../dao/conexion2.php");
-include_once("../../dao/programa.php");
+include_once("../../dao/programa2.php");
 
 class sql_programa {
 
@@ -27,7 +26,7 @@ class sql_programa {
         $lista_docentes = $Conexion->ejecutar("select * from programa order by id_programa");
         $i = 0;
         while ($renglon = mysql_fetch_array($lista_docentes)) {
-            $objeto = new programa();
+            $objeto = new programa2();
             $objeto->setid_programa($renglon['id_programa']);
             $objeto->setdescripcion($renglon['descripcion']);
             $objeto->setcaracteristicas($renglon['caracteristicas']);
@@ -52,7 +51,7 @@ class sql_programa {
         $lista_docentes = $Conexion->ejecutar("select id_programa, nombre_programa, descripcion, caracteristicas, categoria, monto, estatus, convocatoria from programa where nombre_programa like '%" . $nombre . "%';");
         $i = 0;
         while ($renglon = mysql_fetch_array($lista_docentes)) {
-            $objeto = new programa();
+            $objeto = new programa2();
              $objeto->setid_programa($renglon['id_programa']);
 			 $objeto->setnombre_programa($renglon['nombre_programa']);
             $objeto->setdescripcion($renglon['descripcion']);
@@ -94,7 +93,7 @@ class sql_programa {
         $list_docentes = $Conexion->ejecutar("select id_programa, nombre_programa, descripcion, caracteristicas, categoria, monto, estatus, convocatoria from programa where id_programa = ".$id.";");
         
         while ($renglon = mysql_fetch_array($list_docentes)){
-            $objeto = new programa();
+            $objeto = new programa2();
    		    $objeto->setid_programa($renglon['id_programa']);
 			$objeto->setnombre_programa($renglon['nombre_programa']);
             $objeto->setdescripcion($renglon['descripcion']);
@@ -153,7 +152,7 @@ class sql_programa {
         $lista_docentes = $Conexion->ejecutar("select nombre_programa from programa order by id_programa");
         $i = 0;
         while ($renglon = mysql_fetch_array($lista_docentes)) {
-            $objeto = new programa();
+            $objeto = new programa2();
             $objeto->setnombre_programa($renglon['nombre_programa']);
 			
             array_push($docentes, $objeto);

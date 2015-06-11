@@ -1,7 +1,8 @@
 <?php
 
 /*
-* TRM
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
 */
 
 require_once ('../../bbl/sql_beneficiario.php');
@@ -37,11 +38,12 @@ switch ($action) {
         $motivo = strval($_POST['motivo']);
         
         $objeto = new beneficiario();
-        $objeto->setId($idbeneficiario);
-        $objeto->setNombre($nombre.",".$apaterno.",".$amaterno);
-        $objeto->setRfc($rfc);
-        $objeto->setCurp($curp);
+        $objeto->setidBeneficiario($idbeneficiario);
+        $objeto->setnombre($nombre.",".$apaterno.",".$amaterno);
+        $objeto->setrfc($rfc);
+        $objeto->setcurp($curp);
         $objeto->setEstatus($estatus);
+        $objeto->setMotivo($motivo);
 
 
         $msql_beneficiario->UpdateBeneficiarioEstatus($objeto);

@@ -29,13 +29,12 @@ class sql_beneficiario {
         $i = 0;
         while ($renglon = mysql_fetch_array($info_beneficiario)) {
             $objeto = new beneficiario();
-			$objeto->setidBeneficiario($renglon['id_beneficiario']);
-            $objeto->setnombre($renglon['nombre_completo']);
-            $objeto->setrfc($renglon['rfc']);
-            $objeto->setcurp($renglon['curp']);
+			$objeto->setId($renglon['id_beneficiario']);
+            $objeto->setNombre($renglon['nombre_completo']);
+            $objeto->setRfc($renglon['rfc']);
+            $objeto->setCurp($renglon['curp']);
 			$objeto->setEstatus($renglon['estatus']);
-			$objeto->setMotivo($renglon['motivo']);
-            
+			
             array_push($beneficiario, $objeto);
         }
 
@@ -49,9 +48,9 @@ class sql_beneficiario {
         $Conexion = conectar_bd();
         $Conexion->conectarse();
 
-        $Conexion->ejecutar("UPDATE beneficiario set nombre_completo='" . $objeto->getnombre() .
-							"', rfc = '" . $objeto->getrfc() . "', curp = '" . $objeto->getcurp() . "'
-					where id_beneficiario = " . $objeto->getidBeneficiario() . ";");
+        $Conexion->ejecutar("UPDATE beneficiario set nombre_completo='" . $objeto->getNombre() .
+							"', rfc = '" . $objeto->getRfc() . "', curp = '" . $objeto->getCurp() . "'
+					where id_beneficiario = " . $objeto->getId() . ";");
 
         $Conexion->desconectarse();
     }
@@ -62,11 +61,10 @@ class sql_beneficiario {
         $Conexion = conectar_bd();
         $Conexion->conectarse();
 
-        $Conexion->ejecutar("UPDATE beneficiario set nombre_completo='" . $objeto->getnombre() .
-							"', rfc = '" . $objeto->getrfc() . "', curp = '" . $objeto->getcurp() .
+        $Conexion->ejecutar("UPDATE beneficiario set nombre_completo='" . $objeto->getNombre() .
+							"', rfc = '" . $objeto->getRfc() . "', curp = '" . $objeto->getCurp() .
 							"', estatus = '".$objeto->getEstatus().
-							"', motivo = '".$objeto->getMotivo()."' 
-					where id_beneficiario = " . $objeto->getidBeneficiario() . ";");
+					"' where id_beneficiario = " . $objeto->getId() . ";");
 
         $Conexion->desconectarse();
     }
@@ -115,15 +113,7 @@ class sql_beneficiario {
         $Conexion->desconectarse();
     }
     
-  /*  public function guardarUsuario($objeto1){
-        $Conexion = conectar_bd();
-        $Conexion->conectarse();
-        
-        $Conexion->ejecutar("INSERT INTO usuarios (privilegios, usuario, contrasenia) 
-        VALUES(".$objeto1->getPrivilegio().", '".$objeto1->getUsuario()."','".$objeto1->getPass()."');");
-        
-        $Conexion->desconectarse();
-    }*/
+
     
     public function listarBeneficiarios(){
         

@@ -49,7 +49,7 @@ switch ($action) {
         $rfc = strval ($_POST['rfc']);
         $nombre_com = $nombre." ".$ap_paterno." ".$ap_materno;
 
-        //$objeto = new beneficiario();
+        $objeto = new beneficiario();
         
         //$objeto->setId($id);
         $objeto->setNombre($nombre." ".$ap_paterno." ".$ap_materno);  

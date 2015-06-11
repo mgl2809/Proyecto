@@ -79,7 +79,7 @@
 					 <td><?php echo $mDocente->getnombre_proyecto(); ?></td>
                     <td><?php echo $mDocente->getid_programa(); ?></td>
                     <td><?php echo $mDocente->getid_dependencia(); ?></td>
-                    <td><?php echo $mDocente->getmonto(); ?></td>
+                    <td><?php echo "$ ".number_format($mDocente->getmonto(), 2, ',', ' '); ?></td>
 					
                     <td><a class="select_ap" href="javascript:void(0);" data-idd="<?php echo $mDocente->getid(); ?>" data-nombre="<?php echo $mDocente->getid_programa();?>">Modificar</a></td>
                     <td><a class="select_ed" href="javascript:void(0);" data-idd="<?php echo $mDocente->getid(); ?>" data-nombre="<?php echo $mDocente->getid_programa();?>">Eliminar</a></td>

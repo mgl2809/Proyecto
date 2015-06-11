@@ -29,7 +29,7 @@
                 <tr>
                     <td>
                         Monto:
-                        <?php echo $mPrograma->getMonto(); ?>
+                        <?php echo "$ ".number_format($mPrograma->getMonto(), 2, '.', ' '); ?>
                     </td>
                 </tr>
                 <tr>

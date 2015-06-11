@@ -8,37 +8,37 @@
                 <tr>
                     <td>
                         Nombre:
-                        <input type="text" id="nombre" name="nombre" class="nombre" size="50" size="12" value="<?php echo explode(",",$mBeneficiario->getnombre())[0]; ?>"/>
+                        <input type="text" id="nombre" name="nombre" class="nombre" size="50" size="12" value="<?php echo explode(",",$mBeneficiario->getNombre())[0]; ?>"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         Apellido Paterno:
-                        <input type="text" id="aPaterno" name="aPaterno" class="nombre" size="30" value="<?php echo explode(",",$mBeneficiario->getnombre())[1]; ?>"/>
+                        <input type="text" id="aPaterno" name="aPaterno" class="nombre" size="30" value="<?php echo explode(",",$mBeneficiario->getNombre())[1]; ?>"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         Apellido Materno:
-                        <input type="text" id="aMaterno" name="aMaterno" class="nombre" size="30" value="<?php echo explode(",",$mBeneficiario->getnombre())[2]; ?>" />
+                        <input type="text" id="aMaterno" name="aMaterno" class="nombre" size="30" value="<?php echo explode(",",$mBeneficiario->getNombre())[2]; ?>" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         CURP:
-                        <input type="text" id="curp" name="curp" size="18" value="<?php echo $mBeneficiario->getcurp(); ?>" />
+                        <input type="text" id="curp" name="curp" size="22" value="<?php echo $mBeneficiario->getCurp(); ?>" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         RFC:
-                        <input type="text" id="rfc" name="rfc" size="13" value="<?php echo $mBeneficiario->getrfc(); ?>" />
+                        <input type="text" id="rfc" name="rfc" size="15" value="<?php echo $mBeneficiario->getRfc(); ?>" />
                     </td>
                 </tr>
                  <tr style="vertical-align:middle">
                     <td >
                         ESTADO:
-                        <img width="22" height="22"  src="../../bbl/lib/images/<?php echo $mBeneficiario->getestado(); ?>.png" />
+                        <img width="22" height="22"  src="../../bbl/lib/images/<?php echo $mBeneficiario->getEstatus(); ?>.png" />
                     </td>
                 </tr>
                  <?php

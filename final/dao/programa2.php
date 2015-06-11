@@ -1,6 +1,6 @@
 <?php
 
-class programa
+class programa2
 {
 
     private $id_programa;

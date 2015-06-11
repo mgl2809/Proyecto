@@ -1,6 +1,8 @@
 <?php
 
 /*
+ *
+ *TRM
 * To change this template, choose Tools | Templates
 * and open the template in the editor.
 */
@@ -28,7 +30,7 @@ switch ($action) {
     case 'Save_Beneficiario':
         $view->disableLayout = true;
 
-        $idbeneficiario = intval($_POST['idBeneficiario']);
+        $idbeneficiario = "1";
         $nombre = strval($_POST['nombre']);
         $apaterno = strval($_POST['aPaterno']);
         $amaterno = strval($_POST['aMaterno']);
@@ -37,10 +39,10 @@ switch ($action) {
         $estado = strval($_POST['estado']);
         
         $objeto = new beneficiario();
-        $objeto->setidBeneficiario($idbeneficiario);
-        $objeto->setnombre($nombre.",".$apaterno.",".$amaterno);
-        $objeto->setrfc($rfc);
-        $objeto->setcurp($curp);
+        $objeto->setId($idbeneficiario);
+        $objeto->setNombre($nombre.",".$apaterno.",".$amaterno);
+        $objeto->setRfc($rfc);
+        $objeto->setCurp($curp);
 
 
         $msql_beneficiario->UpdateBeneficiario($objeto);

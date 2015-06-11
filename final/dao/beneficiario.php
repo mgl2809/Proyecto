@@ -1,72 +1,81 @@
 <?php
-
-/**
- *
- * @Clase para modificar beneficiario. "beneficiario.php"
- * @versión: 0.1      @modificado:   8 de junio de 2015
- * @autor: TRM
- *
- */
-class beneficiario
-{
-
-    private $idBeneficiario;
+class beneficiario{
+    
+    private $id;
     private $nombre;
-    private $curp;
     private $rfc;
+    private $curp;
+    private $usuario;
+    private $pass;
+    private $privilegio;
     private $estatus;
-    private $motivo;
-
+    
     public function __construct(){
-
+        
     }
-    public function setidBeneficiario($idBeneficiario){
-        $this->idBeneficiario = $idBeneficiario;
+    public function setId($id){
+        $this->id = $id; 
     }
     
-    public function getidBeneficiario(){
-        return $this->idBeneficiario;
+    public function getId(){
+        return $this->id;
     }
-
-    public function setnombre($nombre){
-        $this->nombre = $nombre;
+    
+    public function setNombre($nombre){
+        $this->nombre = $nombre;        
     }
-
-    public function getnombre(){
+    
+    public function getNombre(){
         return $this->nombre;
     }
-
-    public function setrfc($rfc){
+    
+    public function setRfc($rfc){
         $this->rfc = $rfc;
     }
     
-    public function getrfc(){
+    public function getRfc(){
         return $this->rfc;
     }
     
-    public function setcurp($curp){
+    public function setCurp($curp){
         $this->curp = $curp;
     }
     
-    public function getcurp(){
+    public function getCurp(){
         return $this->curp;
     }
     
+    public function setUsuario($usuario){
+        $this->usuario= $usuario;
+    }
+    
+    public function getUsuario(){
+        return $this->usuario;
+    }
+    
+    
+    public function setPass($contrasenia){
+        $this->pass= $contrasenia;
+    }
+    
+    public function getPass(){
+        return $this->pass;
+    }
+    
+    public function setPrivilegio($priv){
+        $this->privilegio= $priv;
+    }
+    
+    public function getPrivilegio(){
+        return $this->privilegio;
+    }
+    
     public function setEstatus($estatus){
-        $this->estatus = $estatus;
+        $this->estatus= $estatus;
     }
     
     public function getEstatus(){
         return $this->estatus;
     }
     
-    public function setMotivo($motivo){
-        $this->motivo = $motivo;
-    }
-    
-    public function getMotivo(){
-        return $this->motivo;
-    }
 }
-
-?>

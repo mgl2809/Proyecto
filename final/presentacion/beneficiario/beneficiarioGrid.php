@@ -36,12 +36,12 @@
             <tr>
                 <td>
                     CURP:
-                    <input type="text" id="curp" name="curp" class="curp" size="20"/></td>           
+                    <input type="text" id="curp" name="curp" class="nombre" size="22" /></td>           
             </tr>
             <tr>
                 <td>
                     RFC:
-                    <input type="text" id="rfc" name="rfc" class="rfc" size="10"/>                
+                    <input type="text" id="rfc" name="rfc" class="nombre" size="18"/>                
                 </td>
             </tr>
             <tr>

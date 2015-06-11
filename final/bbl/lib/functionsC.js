@@ -123,7 +123,7 @@ $(document).ready(function(){ //cuando el html fue cargado iniciar
         var curp  = document.frm_mod_beneficiario.curp.value;
         var rfc  = document.frm_mod_beneficiario.rfc.value;
         var radios = document.frm_mod_beneficiario.estatus;
-        var motivo = document.frm_mod_beneficiario.motivo.value;
+       // var motivo = document.frm_mod_beneficiario.motivo.value;
         var estatus;
         
         for (var i = 0, length = radios.length; i < length; i++) {
@@ -152,13 +152,13 @@ $(document).ready(function(){ //cuando el html fue cargado iniciar
             params.rfc = rfc;
             params.curp = curp;
             params.estatus = estatus;
-            params.motivo = motivo;
+            //params.motivo = motivo;
             
             var entrar = confirm("Se modificara sus datos.");
             
                 if(entrar == true){
                     params.action="Save_Beneficiario";
-                    $('#content').load('listar_beneficiario2.php', params, function(){
+                    $('#content').load('listar_beneficiarioAdmin.php', params, function(){
                         alert("Se modificaron sus datos exitosamente");
                     })
                 }
@@ -1247,7 +1247,7 @@ $(document).ready(function(){ //cuando el html fue cargado iniciar
 	
     })
 	  //función para registrar un docente desde el formulario
-	  $('#saveD').live('click', function(){
+	  $('#savenada2').live('click', function(){
 
         var idusuario = document.frm_docente.idusuario.value;
       	var nombre = document.frm_docente.nombre.value.toUpperCase();
@@ -2272,7 +2272,7 @@ $(document).ready(function(){ //cuando el html fue cargado iniciar
 	
     })
 	  //función para registrar un docente desde el formulario
-	  $('#saveD').live('click', function(){
+	  $('#saveNada').live('click', function(){
 
         var idusuario = document.frm_docente.idusuario.value;
       	var nombre = document.frm_docente.nombre.value.toUpperCase();
