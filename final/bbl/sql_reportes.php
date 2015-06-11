@@ -88,19 +88,14 @@ class sql_reportes {
         $Conexion = conectar_bd();
         $Conexion->conectarse();
 		if($dependencia!=null){
-			echo("SELECT count(programabeneficiario.idPB) as total from dependencia
-			left JOIN programa on dependencia.id_dependencia = programa.dependencia_id_dependencia
-			LEFT join programabeneficiario on programabeneficiario.id_programa = programa.id_programa
-			and programabeneficiario.estatus = '".$estatus."' where programa.id_programa = '".
-			$idPrograma."' group BY id_dependencia");
-			
-			$list_programas = $Conexion->ejecutar("SELECT count(programabeneficiario.idPB) as total from dependencia
+
+			$list_programas = $Conexion->ejecutar("SELECT count(dependencia.id_dependencia) as total from dependencia
 			left JOIN programa on dependencia.id_dependencia = programa.dependencia_id_dependencia
 			LEFT join programabeneficiario on programabeneficiario.id_programa = programa.id_programa
 			and programabeneficiario.estatus = '".$estatus."' where id_dependencia = '".
 			$dependencia."' group BY id_dependencia");
 		}else{
-			$list_programas = $Conexion->ejecutar("SELECT count(programabeneficiario.idPB) as total from dependencia
+			$list_programas = $Conexion->ejecutar("SELECT count(dependencia.id_dependencia) as total from dependencia
 			left JOIN programa on dependencia.id_dependencia = programa.dependencia_id_dependencia
 			LEFT join programabeneficiario on programabeneficiario.id_programa = programa.id_programa
 			and programabeneficiario.estatus = '" . $estatus . "' 

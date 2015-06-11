@@ -1,0 +1,44 @@
+<head>
+<meta charset="utf-8" />
+<title>Login Usuarios </title>
+<script type="text/javascript">
+            	
+	function direccionar(){
+	        usuario = document.form.usuario.value;
+            
+		    //if(usuario == "admin"){
+				
+			
+			 location.href="presentacion/beneficiario/listar_beneficiario.php";
+			
+		}
+	</script>	
+	
+	<link rel="stylesheet" type="text/css" href="bbl/lib/style.css" />
+	<link rel="stylesheet" type="text/css" href="bbl/lib/screen.css" />
+	</head>
+	<body>
+	<hr />
+		<br/><br/><br/>
+		<form name="form" method="post" action="">
+		<table>
+			<tr>
+				<td>
+					<label>Usuario:</label>				</td>
+				<td	>
+					<input type="text" name="usuario" id="usuario" size="25"/>				</td>		
+			</tr>	
+			<tr>
+				<td>
+					<label>Contrase&ntilde;a:</label>				</td>
+				<td>
+					<input type="password" name="pass" id="pass" size="25"/>				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="button" name="enviar" value="Entrar" onclick="direccionar ()"/></td>
+			</tr>	
+		</table>
+	</form> 
+	</body>
+</html>
